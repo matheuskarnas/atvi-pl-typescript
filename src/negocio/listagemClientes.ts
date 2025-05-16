@@ -32,6 +32,13 @@ export default class ListagemClientes extends Listagem {
           })
           .join("\n")}`
       );
+      console.log(
+        `Pets: \n${cliente.getPets
+          .map((pet) => {
+            return `Nome: ${pet.getNome} - Tipo: ${pet.getTipo} - Raça: ${pet.getRaca} - Gênero: ${pet.getGenero}`;
+          })
+          .join("\n")}`
+      );
       console.log(`--------------------------------------`);
     });
     console.log(`\n`);

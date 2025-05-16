@@ -4,6 +4,7 @@ import CPF from "../modelo/cpf";
 import Cadastro from "./cadastro";
 import RG from "../modelo/rg";
 import Telefone from "../modelo/telefone";
+import Pet from "../modelo/pet";
 
 export default class CadastroCliente extends Cadastro {
   private clientes: Array<Cliente>;
@@ -77,7 +78,26 @@ export default class CadastroCliente extends Cadastro {
       }
     }
 
-    let cliente = new Cliente(nome, nomeSocial, cpf, rgs, telefones);
+    let newPet = true;
+    let pets: Array<Pet> = [];
+    while (newPet) {
+      let nome = this.entrada.receberTexto(`Por favor informe o nome do pet: `);
+      let raca = this.entrada.receberTexto(`Por favor informe a raça do pet: `);
+      let genero = this.entrada.receberTexto(
+        `Por favor informe o gênero do pet: `
+      );
+      let tipo = this.entrada.receberTexto(`Por favor informe o tipo do pet: `);
+      let pet = new Pet(nome, raca, genero, tipo);
+      pets.push(pet);
+      let continuar = this.entrada.receberTexto(
+        `Deseja cadastrar mais um pet? (s/n) `
+      );
+      if (continuar.toLowerCase() == "n") {
+        newPet = false;
+      }
+    }
+
+    let cliente = new Cliente(nome, nomeSocial, cpf, rgs, telefones, pets);
     this.clientes.push(cliente);
     console.log(`\nCadastro concluído :)\n`);
   }
