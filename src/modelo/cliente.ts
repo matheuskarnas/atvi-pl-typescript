@@ -15,13 +15,13 @@ export default class Cliente {
   private produtosConsumidos: Array<Produto>;
   private servicosConsumidos: Array<Servico>;
   private pets: Array<Pet>;
-  constructor(nome: string, nomeSocial: string, cpf: CPF, rgs: Array<RG>) {
+  constructor(nome: string, nomeSocial: string, cpf: CPF, rgs: Array<RG>, telefones: Array<Telefone> = []) {
     this.nome = nome;
     this.nomeSocial = nomeSocial;
     this.cpf = cpf;
     this.rgs = rgs;
     this.dataCadastro = new Date();
-    this.telefones = [];
+    this.telefones = telefones;
     this.produtosConsumidos = [];
     this.servicosConsumidos = [];
     this.pets = [];

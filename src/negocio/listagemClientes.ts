@@ -25,6 +25,13 @@ export default class ListagemClientes extends Listagem {
           })
           .join("\n")}`
       );
+      console.log(
+        `Telefones: \n${cliente.getTelefones
+          .map((telefone) => {
+            return `Telefone: (${telefone.getDdd}) ${telefone.getNumero}`;
+          })
+          .join("\n")}`
+      );
       console.log(`--------------------------------------`);
     });
     console.log(`\n`);
