@@ -1,3 +1,3 @@
 export default class Servico {
-    public nome!: string
+  public nome!: string;
 }
